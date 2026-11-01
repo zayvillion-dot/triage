@@ -1,0 +1,8 @@
+{
+  "name": "triage",
+  "description": "Marketplace for the triage skill",
+  "owner": { "name": "Isaiah Brooks" },
+  "plugins": [
+    { "name": "triage", "description": "Triage pass: record every answer, route work into Quick / Standard / Critical lanes with priority numbers, hand out self-contained build prompts, end with a ledger", "version": "0.1.0", "source": "./", "author": { "name": "Isaiah Brooks" } }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "triage",
+  "description": "Runs a triage pass on a mixed batch of answers, findings, and ideas: records every answer, sizes and ranks each piece of work into a lane, and hands out a self-contained build prompt for anything larger than Quick. Ends with a ledger.",
+  "version": "0.1.0",
+  "author": { "name": "Isaiah Brooks" },
+  "homepage": "https://github.com/zayvillion-dot/triage",
+  "repository": "https://github.com/zayvillion-dot/triage",
+  "license": "MIT",
+  "keywords": ["skills", "triage", "routing", "build-prompts", "handoff"]
+}
