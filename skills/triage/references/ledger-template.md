@@ -6,7 +6,7 @@ End of every pass:
 ## Triage ledger — <date>
 RECORDED: <answer> -> <file or tracker row>
 ROUTED:   P1 <item> -> Standard, prompt <path>
-          P2 <item> -> Quick, done here
+          P<n> <item> -> Quick, done here, reviewed, <commit or file>
 LIVE:     <decision needing its own chat>
 OWED BY YOU: <item> (unblocks P<n>)
 ```

@@ -5,47 +5,42 @@ description: Use when the user dumps a mixed batch of answers, findings, ideas, 
 
 # Triage
 
-A triage session takes a mixed batch and does three things only: record, route, hand out. It builds nothing larger than a Quick item.
+A triage pass does three things only: record, route, hand out. It builds nothing larger than a Quick item.
 
 ## The pass
 
-1. **RECORD.** Write every answer to its home: the progress log, the project's decision or memory notes, the tracker. A tick or a one-word reply means "do the default as written". Record it; never reopen an old chat to apply it.
-2. **ROUTE.** Size each new item into a lane (table below). Give every routed item a priority number, 1 = first.
-3. **HAND OUT.** Write one build prompt per Standard or Critical item (`references/build-prompt-template.md`).
+1. **RECORD.** Decisions go to the decisions file, status and confirmations to the progress log, items to the tracker (the project's task list file or board; default `docs/tracker.md`). No home? Create `docs/decisions.md` and `docs/tracker.md`. A tick or one-word reply means "do the default as written"; never reopen an old chat. An answer that implies work is recorded AND routed as an item. Details: `references/record-rules.md`.
+2. **ROUTE.** Size each item into a lane. Number routed items 1, 2, 3: rank by what unblocks the most work, then by risk.
+3. **HAND OUT.** One prompt per Standard or Critical item (`references/build-prompt-template.md`), written to `docs/prompts/<pn>-<slug>.md` and pasted in chat.
 
 ## Lanes
 
-| Lane | Fits | Built by | Where |
-|---|---|---|---|
-| Quick | One review round: small tweak, one-file fix, tracker edit | A subagent; triage plans and reviews | Inside the triage session |
-| Standard | Ordinary feature or multi-file fix | Its own session | Build prompt |
-| Critical | Money, pricing, customer-facing documents, login, security | Its own session, full review | Build prompt |
+Test Critical first.
 
-If the lane is in doubt between Standard and Critical, ask.
+- **Critical:** touches money, pricing, customer documents, login or security. Own session, full review.
+- **Quick:** one file, no behaviour change in a Critical area, not new functionality. A subagent builds it inside the triage session; triage plans and reviews. Commit, merge, or push only after its review passes the repo's hooks.
+- **Standard:** everything else. Own session.
 
-## Build prompt
-
-Six parts, self-contained: goal, decisions in force, files to read, scope boundary, review tier, report-back line. It must not rely on anything said in the triage chat.
+Doubt between Standard and Critical: route as Critical and add the question to OWED BY YOU. Do not stop the pass.
 
 ## Live decisions
 
-A ship call or contract term needs back-and-forth. Say so, name it in the ledger, and leave it for one dedicated chat.
+Ship calls, contract or price terms, anything needing back-and-forth: do not answer it; list it under LIVE for its own chat. A tick never closes it. It gets no priority number.
 
 ## Rollover
 
-When the triage chat slows, write `docs/prompts/triage-handoff-latest.md`, close the session on the tracker, and print the paste block for a fresh triage session.
+When the user asks, or after three passes, write the handoff file (skeleton in `references/ledger-template.md`), close the session on the tracker, and print the paste block. Write it only then.
 
 ## Ledger
 
-End every pass with the ledger (`references/ledger-template.md`): recorded, routed where, still owed by the user.
+End every pass with the ledger (`references/ledger-template.md`) under RECORDED / ROUTED / LIVE / OWED BY YOU.
 
 ## Common mistakes
 
 | Mistake | Fix |
 |---|---|
-| Answering inline and not recording | Write each answer to its home first |
-| Building Standard work in the triage chat | Route it, hand out a prompt |
-| Reopening an old chat for one answer | Record it here |
-| Routing without a priority | Number every routed item |
-| Build prompt that depends on triage context | Restate decisions and files in the prompt |
-| Absorbing a live decision | Flag it for its own chat |
+| Answering inline, recording nothing | Record first |
+| Building Standard work here | Route it, hand out a prompt |
+| Routing without a number | Number every routed item |
+| Prompt leans on triage chat | Restate decisions and files |
+| Answering a live decision | LIVE |

@@ -13,7 +13,7 @@ READ FIRST: <exact file paths, in order>
 
 SCOPE: In: <what to change>. Out: <what to leave alone>.
 
-REVIEW TIER: <Quick | Standard | Critical>
+REVIEW TIER: <Standard | Critical>
 
 REPORT BACK: <one line to return, e.g. "built, tests green, branch <name>, owed: <list>">
 ```
