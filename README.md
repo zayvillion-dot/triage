@@ -1,5 +1,7 @@
 # Triage
 
+![triage](assets/social-preview.png)
+
 A Claude Code skill for the moment you hand an agent a pile. A triage session is one chat that takes a mixed batch of inputs (answers to open questions, new findings, ideas, console confirmations, ship calls) and does three things only: record, route, hand out. Without the skill, the agent answers inline, builds the first thing in the same chat, loses the answers, and never ranks the work.
 
 Use it when you dump a mixed batch, say "triage", "here's a batch", or "clear my list", invoke `/triage`, or a tracker shows several ticked or answered items waiting to be applied.
